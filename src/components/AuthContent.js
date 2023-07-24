@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { request, setAuthHeader } from '../helpers/axios_helper';
+import { request, setAuthToken } from '../helpers/axios_helper';
 
 export default class AuthContent extends React.Component {
 
@@ -21,7 +21,7 @@ export default class AuthContent extends React.Component {
             }).catch(
             (error) => {
                 if (error.response.status === 401) {
-                    setAuthHeader(null);
+                    setAuthToken(null);
                 } else {
                     this.setState({data: error.response.code})
                 }
